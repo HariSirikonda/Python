@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 
+#function for converting the weight
 def convert():
     if value_entry.get().isdigit():
         if label_1.cget('text') == " Kilograms to Pounds : ":
@@ -19,22 +20,26 @@ def convert():
         reset()
         messagebox.showwarning("Warning","Numbers enter chey ra erri malokam..!")
 
+#fuction for deleting all the entrys in the GUI
 def reset():
     value_entry.delete(0,END)
     result_entry.delete(0,END)
 
+#This function swaps the conversion process.
 def swap():
     label_1.config(text=f' Pounds to Kilograms : ')
     reset()
     swap_button.configure(state="disable")
     unswap_button.configure(state="normal")
 
+#This function unswaps the conversion process to as it is.
 def unswap():
     label_1.config(text=f' Kilograms to Pounds : ')
     reset()
     unswap_button.configure(state="disable")
     swap_button.configure(state="normal")
 
+#copies the result to clipboard
 def copy():
     root.clipboard_clear()
     root.clipboard_append(result_entry.get())
